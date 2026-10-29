@@ -1,0 +1,17 @@
+[
+        {
+            "character": "<id>",
+            "description": "<description>",
+            "sticker_sheet": "<sheet_id>"
+        },
+        {
+            "character": "<id>",
+            "description": "<description>",
+            "sticker_sheet": "<sheet_id>"
+        },
+        {
+            "character": "<id>",
+            "description": "<description>",
+            "sticker_sheet": "<sheet_id>"
+        }
+]

@@ -1,6 +1,7 @@
 import Boot from './boot.js';
 import End from './end.js';
 import Level from './level.js';
+import CollageScene from './scenes/collage_scene.js';
 import Phaser from 'phaser';
 
 /**
@@ -17,7 +18,7 @@ let config = {
         autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
     },
     pixelArt: true,
-    scene: [Boot, Level, End],
+    scene: [Boot, Level, CollageScene, End],
     physics: {
         default: 'arcade',
         arcade: {

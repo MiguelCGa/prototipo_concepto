@@ -1,0 +1,6 @@
+{
+    "<sheet_id>": {
+        "image": "<path/to/image>",
+        "atlas": "<path/to/atlas>"
+    }
+}

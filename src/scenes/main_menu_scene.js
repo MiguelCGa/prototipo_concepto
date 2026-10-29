@@ -10,7 +10,7 @@ export default class MainMenuScene extends Phaser.Scene {
      * Constructor de la escena
      */
     constructor() {
-        super({ key: 'commision_select' });
+        super({ key: 'main_menu' });
     }
 
     /**
