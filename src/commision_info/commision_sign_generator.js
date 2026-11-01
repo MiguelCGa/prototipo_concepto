@@ -16,15 +16,19 @@ export default class CommisionSignGenerator {
         this.current_commision = 0;
     }
 
-    create_sign(scene, x, y) {
-        scene.add.existing(new CommisionSign(scene, x, y, commisions[this.current_commision], characters));
-        ++this.current_commision;
+    create_sign(scene, x, y, commision, state_controller) {
+        let sign = new CommisionSign(scene, x, y, commision, state_controller)
+        scene.add.existing(sign);
+        return sign;
     }
 
-    create_three_signs(scene, x, y) {
+    create_three_signs(scene, x, y, state_controller) {
+        let signs = [];
         for (let i = 0; i < 3; ++i) {
-            this.create_sign(scene, x + 250 * i, y);
+            signs[i] = this.create_sign(scene, x + 250 * i, y, commisions[this.current_commision], state_controller);
+            ++this.current_commision;
         }
+        return signs;
     }
 
 }

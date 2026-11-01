@@ -5,21 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "type": "firefox",
             "request": "launch",
             "name": "Ejecutar en navegador",
             "url": "http://localhost:5173",
             "webRoot": "${workspaceFolder}",
             "preLaunchTask": "npm: start",
-            "postDebugTask": "terminar vite"
+            "postDebugTask": "terminar vite",
         },
         {
-            "type": "chrome",
+            "type": "firefox",
             "request": "attach",
             "name": "Ejecutar en Electron",
             "port": 9222,
             "webRoot": "${workspaceFolder}",
-            "timeout": 30000,
             "preLaunchTask": "npm: electron",
             "postDebugTask": "terminar electron"
         }

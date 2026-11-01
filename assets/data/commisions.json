@@ -1,17 +1,17 @@
 [
         {
             "character": "<id>",
-            "description": "<description>",
+            "description": "<description1>",
             "sticker_sheet": "<sheet_id>"
         },
         {
             "character": "<id>",
-            "description": "<description>",
+            "description": "<description2>",
             "sticker_sheet": "<sheet_id>"
         },
         {
             "character": "<id>",
-            "description": "<description>",
+            "description": "<description3>",
             "sticker_sheet": "<sheet_id>"
         }
 ]

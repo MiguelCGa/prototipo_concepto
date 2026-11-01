@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 
+import characters from "../../assets/data/characters.json";
 
 /**
  * Clase que representa un cartel de encargo. 
@@ -14,31 +15,42 @@ export default class CommisionSign extends Phaser.GameObjects.Container {
      * @param {number} x Coordenada X
      * @param {number} y Coordenada Y
      * @param {object} commision_info Objeto JSON con la información del encargo
-     * @param {object} characters Objeto JSON con la información de los personajes
+     * @param {object} satate_controller 
      */
-    constructor(scene, x, y, commision_info, characters) {
+    constructor(scene, x, y, commision_info, state_controller) {
         super(scene, x, y, null);
         this.scene.add.existing(this);
 
+        this.state_controller = state_controller;
+        this.commision_info = commision_info;
+
         let character_id = commision_info["character"];
 
-        // cuadro UI
-        this.add(new Phaser.GameObjects.Sprite(scene, 0, 0, character_id));
-        this.add(new Phaser.GameObjects.Text(scene, 0, 200, characters[character_id]["name"]));
-        this.add(new Phaser.GameObjects.Text(scene, 0, 250, commision_info["description"]));
+        // Marco cartel
+        let commision_frame = new Phaser.GameObjects.Sprite(scene, 0, 0, "commision_frame");
+        this.add(commision_frame);
+
+        // Imágen personje
+        this.add(new Phaser.GameObjects.Sprite(scene, 0, -50, character_id));
+        
+        // Nomber personaje
+        this.add(new Phaser.GameObjects.Text(scene, -100, 50, characters[character_id]["name"]));
+        
+        // Descripción encargo
+        this.add(new Phaser.GameObjects.Text(scene, -100, 75, commision_info["description"]));
+
+        this._make_clickable(commision_frame, state_controller);
     }
 
+    _make_clickable(commision_frame) {
+        commision_frame.setInteractive();
+        commision_frame.on('pointerdown', () => {
+            this._on_click();
+        });
+    }
 
-
-    /**
-     * Métodos preUpdate de Phaser. En este caso solo se encarga del movimiento del jugador.
-     * Como se puede ver, no se tratan las colisiones con las estrellas, ya que estas colisiones 
-     * ya son gestionadas por la estrella (no gestionar las colisiones dos veces)
-     * @override
-     */
-    // preUpdate(t, dt) {
-    //     super.preUpdate(t, dt);
-        
-    // }
+    _on_click() {
+        this.state_controller.select_commision(this.commision_info);
+    }
 
 }
