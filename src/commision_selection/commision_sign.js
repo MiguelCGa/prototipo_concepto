@@ -2,12 +2,18 @@ import Phaser from 'phaser';
 
 import characters from "../../assets/data/characters.json";
 
+const comm_frame_key = "commision_frame";
+
 /**
  * Clase que representa un cartel de encargo. 
  * Contiene el sprite del personaje, el nombre del personaje 
  * y la descripción del encargo.
  */
 export default class CommisionSign extends Phaser.GameObjects.Container {
+
+    static preload(scene) {
+        scene.load.image(comm_frame_key, "./assets/sprites/ui/commision_frame.png");
+    }
 
     /**
      * Constructor del cartel de encargo
@@ -27,7 +33,7 @@ export default class CommisionSign extends Phaser.GameObjects.Container {
         let character_id = commision_info["character"];
 
         // Marco cartel
-        let commision_frame = new Phaser.GameObjects.Sprite(scene, 0, 0, "commision_frame");
+        let commision_frame = new Phaser.GameObjects.Sprite(scene, 0, 0, comm_frame_key);
         this.add(commision_frame);
 
         // Imágen personje

@@ -4,7 +4,7 @@ import { CollageStateMachine, COLLAGE_STATE } from './collage_state_machine.js';
 
 export default class CollageStateController {
 
-    constructor(state_machine, init_state) {
+    constructor(state_machine) {
         this.state_machine = state_machine;
     }
 
@@ -21,4 +21,15 @@ export default class CollageStateController {
         });
     }
 
+
+    start_commision(commision, background, sheet) {
+        if (this.state_machine.state !== COLLAGE_STATE.ASSETS_SELECT)
+            return;
+        
+        this.state_machine._go_to(COLLAGE_STATE.CANVAS, {
+            selected_comm: commision,
+            selected_bg: background,
+            selected_sheet: sheet
+        });
+    }
 }
