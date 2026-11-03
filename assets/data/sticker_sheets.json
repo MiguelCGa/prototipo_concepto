@@ -1,6 +1,10 @@
 {
     "<sheet_id>": {
-        "image": "<path/to/image>",
+        "image": "./assets/sprites/sheets/default_sheet.png",
+        "atlas": "<path/to/atlas>"
+    },
+    "<sheet_id2>": {
+        "image": "./assets/sprites/sheets/default_sheet2.png",
         "atlas": "<path/to/atlas>"
     }
 }

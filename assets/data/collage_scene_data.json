@@ -1,0 +1,17 @@
+{
+    "comm_select_signs": {
+        "pos": { "x": 200, "y": 200 }
+    },
+    "asset_select_sign": {
+        "pos": { "x": 200, "y": 200}
+    },
+    "asset_select_bg": {
+        "pos": { "x": 600, "y": 100}
+    },
+    "asset_select_sheet": {
+        "pos": { "x": 600, "y": 300}
+    },
+    "asset_select_start_button": {
+        "pos": { "x": 600, "y": 450}
+    }
+}

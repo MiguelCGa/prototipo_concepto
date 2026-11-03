@@ -12,6 +12,8 @@ import SheetSelector from '../assets_selection/sheet_selector.js';
 import characters from "../../assets/data/characters.json";
 import commisions from "../../assets/data/commisions.json";
 
+import data from "../../assets/data/collage_scene_data.json";
+
 /**
  *  
  * @extends Phaser.Scene
@@ -33,6 +35,7 @@ export default class CollageScene extends Phaser.Scene {
         CommisionSign.preload(this);
         StartCommButton.preload(this);
         BGSelector.preload(this);
+        SheetSelector.preload(this);
     }
 
     /**
@@ -72,14 +75,31 @@ export default class CollageScene extends Phaser.Scene {
     }
 
     enter_commision_selection(params) {
-        this.state_gos[COLLAGE_STATE.COMM_SELECT].signs = this.commision_sign_generator.create_three_signs(this, 200, 200, this.collage_state_controller);
+        this.state_gos[COLLAGE_STATE.COMM_SELECT].signs = this.commision_sign_generator.create_three_signs(this, 
+            data.comm_select_signs.pos.x, 
+            data.comm_select_signs.pos.y, 
+            this.collage_state_controller);
     }
 
     enter_asset_selection(params) {
-        this.state_gos[COLLAGE_STATE.ASSETS_SELECT].sign = new CommisionSign(this, 200, 200, params.selected_comm, this.collage_state_controller);
-        let bg = this.state_gos[COLLAGE_STATE.ASSETS_SELECT].bg_selector = new BGSelector(this, 600, 200);
-        let sheet = this.state_gos[COLLAGE_STATE.ASSETS_SELECT].sheet_selector = new SheetSelector(this, 600, 300);
-        this.state_gos[COLLAGE_STATE.ASSETS_SELECT].start_comm_button = new StartCommButton(this, 600, 400, this.collage_state_controller, params.selected_comm, bg, sheet);
+        this.state_gos[COLLAGE_STATE.ASSETS_SELECT].sign = new CommisionSign(this,
+            data.asset_select_sign.pos.x,
+            data.asset_select_sign.pos.y,
+            params.selected_comm,
+            this.collage_state_controller);
+        let bg = this.state_gos[COLLAGE_STATE.ASSETS_SELECT].bg_selector = new BGSelector(this,
+            data.asset_select_bg.pos.x,
+            data.asset_select_bg.pos.y);
+        let sheet = this.state_gos[COLLAGE_STATE.ASSETS_SELECT].sheet_selector = new SheetSelector(this,
+            data.asset_select_sheet.pos.x,
+            data.asset_select_sheet.pos.y);
+        this.state_gos[COLLAGE_STATE.ASSETS_SELECT].start_comm_button = new StartCommButton(this,
+            data.asset_select_start_button.pos.x,
+            data.asset_select_start_button.pos.y,
+            this.collage_state_controller,
+            params.selected_comm,
+            bg,
+            sheet);
     }
 
     enter_canvas(params) {
