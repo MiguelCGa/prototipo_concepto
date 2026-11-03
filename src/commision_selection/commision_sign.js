@@ -23,8 +23,8 @@ export default class CommisionSign extends Phaser.GameObjects.Container {
      * @param {object} commision_info Objeto JSON con la información del encargo
      * @param {object} satate_controller 
      */
-    constructor(scene, x, y, commision_info, state_controller) {
-        super(scene, x, y, null);
+    constructor(scene, data, commision_info, state_controller) {
+        super(scene, data.pos.x, data.pos.y, null);
         this.scene.add.existing(this);
 
         this.state_controller = state_controller;

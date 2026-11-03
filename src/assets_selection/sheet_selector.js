@@ -14,8 +14,8 @@ export default class SheetSelector extends Phaser.GameObjects.Container {
     }
 
 
-    constructor(scene, x, y) {
-        super(scene, x, y, null);
+    constructor(scene, data) {
+        super(scene, data.pos.x, data.pos.y, null);
         scene.add.existing(this);
         this.sheet = undefined;
 

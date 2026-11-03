@@ -8,8 +8,8 @@ export default class StartCommButton extends Phaser.GameObjects.Sprite {
         scene.load.image(start_comm_button_key, "./assets/sprites/ui/start_comm_button.png");
     }
 
-    constructor(scene, x, y, state_controller, commision, bg_selector, sheet_selector) {
-        super(scene, x, y, start_comm_button_key);
+    constructor(scene, data, state_controller, commision, bg_selector, sheet_selector) {
+        super(scene, data.pos.x, data.pos.y, start_comm_button_key);
         scene.add.existing(this)
         
         this.state_controller = state_controller;

@@ -76,26 +76,21 @@ export default class CollageScene extends Phaser.Scene {
 
     enter_commision_selection(params) {
         this.state_gos[COLLAGE_STATE.COMM_SELECT].signs = this.commision_sign_generator.create_three_signs(this, 
-            data.comm_select_signs.pos.x, 
-            data.comm_select_signs.pos.y, 
+            data.comm_select_signs, 
             this.collage_state_controller);
     }
 
     enter_asset_selection(params) {
         this.state_gos[COLLAGE_STATE.ASSETS_SELECT].sign = new CommisionSign(this,
-            data.asset_select_sign.pos.x,
-            data.asset_select_sign.pos.y,
+            data.asset_select_sign,
             params.selected_comm,
             this.collage_state_controller);
         let bg = this.state_gos[COLLAGE_STATE.ASSETS_SELECT].bg_selector = new BGSelector(this,
-            data.asset_select_bg.pos.x,
-            data.asset_select_bg.pos.y);
+            data.asset_select_bg);
         let sheet = this.state_gos[COLLAGE_STATE.ASSETS_SELECT].sheet_selector = new SheetSelector(this,
-            data.asset_select_sheet.pos.x,
-            data.asset_select_sheet.pos.y);
+            data.asset_select_sheet);
         this.state_gos[COLLAGE_STATE.ASSETS_SELECT].start_comm_button = new StartCommButton(this,
-            data.asset_select_start_button.pos.x,
-            data.asset_select_start_button.pos.y,
+            data.asset_select_start_button,
             this.collage_state_controller,
             params.selected_comm,
             bg,

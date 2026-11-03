@@ -12,20 +12,15 @@ import commisions from "../../assets/data/commisions.json";
  */
 export default class CommisionSignGenerator {
 
-    constructor(){
+    constructor() {
         this.current_commision = 0;
     }
 
-    create_sign(scene, x, y, commision, state_controller) {
-        let sign = new CommisionSign(scene, x, y, commision, state_controller)
-        scene.add.existing(sign);
-        return sign;
-    }
-
-    create_three_signs(scene, x, y, state_controller) {
+    create_three_signs(scene, data, state_controller) {
         let signs = [];
         for (let i = 0; i < 3; ++i) {
-            signs[i] = this.create_sign(scene, x + 250 * i, y, commisions[this.current_commision], state_controller);
+            let sign_data = { pos : { x: data.pos.x + 250 * i, y: data.pos.y } };
+            signs[i] = new CommisionSign(scene, sign_data, commisions[this.current_commision], state_controller);
             ++this.current_commision;
         }
         return signs;
