@@ -46,7 +46,7 @@ export class CollageStateMachine {
         this.on_enter[state](params);
     }
 
-    _go_to(state, params) {
+    go_to(state, params) {
         this.on_exit[this.state]();
         this.state = state;
         this.params[state] = params;

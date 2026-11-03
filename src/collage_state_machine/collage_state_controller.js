@@ -16,7 +16,7 @@ export default class CollageStateController {
         if (this.state_machine.state !== COLLAGE_STATE.COMM_SELECT)
             return;
         
-        this.state_machine._go_to(COLLAGE_STATE.ASSETS_SELECT, {
+        this.state_machine.go_to(COLLAGE_STATE.ASSETS_SELECT, {
             selected_comm: commision
         });
     }
@@ -26,7 +26,7 @@ export default class CollageStateController {
         if (this.state_machine.state !== COLLAGE_STATE.ASSETS_SELECT)
             return;
         
-        this.state_machine._go_to(COLLAGE_STATE.CANVAS, {
+        this.state_machine.go_to(COLLAGE_STATE.CANVAS, {
             selected_comm: commision,
             selected_bg: background,
             selected_sheet: sheet

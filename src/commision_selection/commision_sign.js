@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 
 import characters from "../../assets/data/characters.json";
 
+import commision_frame from "../../assets/sprites/ui/commision_frame.png";
 const comm_frame_key = "commision_frame";
 
 /**
@@ -12,7 +13,7 @@ const comm_frame_key = "commision_frame";
 export default class CommisionSign extends Phaser.GameObjects.Container {
 
     static preload(scene) {
-        scene.load.image(comm_frame_key, "./assets/sprites/ui/commision_frame.png");
+        scene.load.image(comm_frame_key, commision_frame);
     }
 
     /**

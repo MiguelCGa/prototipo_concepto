@@ -4,13 +4,10 @@ import { CollageStateMachine } from '../collage_state_machine/collage_state_mach
 import CollageStateController from '../collage_state_machine/collage_state_controller.js';
 import CollageStateManager from '../collage_state_machine/collage_state_manager.js';
 
-import CommisionSign from '../commision_selection/commision_sign.js';
-
-import StartCommButton from '../assets_selection/start_comm_button.js';
-import BGSelector from '../assets_selection/bg_selector.js';
-import SheetSelector from '../assets_selection/sheet_selector.js';
-
 import characters from "../../assets/data/characters.json";
+
+//import character1 from "../../assets/character.png";
+
 
 /**
  *  
