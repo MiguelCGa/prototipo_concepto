@@ -3,15 +3,27 @@
         "pos": { "x": 200, "y": 200 }
     },
     "asset_select_sign": {
-        "pos": { "x": 200, "y": 200}
+        "pos": { "x": 200, "y": 200 }
     },
     "asset_select_bg": {
-        "pos": { "x": 600, "y": 100}
+        "pos": { "x": 600, "y": 100 }
     },
     "asset_select_sheet": {
-        "pos": { "x": 600, "y": 300}
+        "pos": { "x": 600, "y": 300 }
     },
     "asset_select_start_button": {
-        "pos": { "x": 600, "y": 450}
+        "pos": { "x": 600, "y": 450 }
+    },
+    "canvas_sign": {
+        "pos": { "x": 200, "y": 250 }
+    },
+    "canvas_canvas": {
+        "pos": { "x": 500, "y": 250 }
+    },
+    "canvas_sheet_spawner": {
+        "pos": { "x": 800, "y": 250 }
+    },
+    "canvas_tool_bar": {
+        "pos": { "x": 500, "y": 45 }
     }
 }

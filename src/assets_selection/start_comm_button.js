@@ -24,6 +24,6 @@ export default class StartCommButton extends Phaser.GameObjects.Sprite {
     }
 
     _on_click() {
-        this.state_controller.start_commision(this.commision, this.bg_selector.get_bg(), this.sheet_selector.get_sheet());
+        this.state_controller.start_commision(this.commision, this.bg_selector.get_bg(), this.sheet_selector.get_sheet(), this.sheet_selector.get_sheet_data());
     }
 }

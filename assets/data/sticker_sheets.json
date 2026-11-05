@@ -1,10 +1,10 @@
 {
-    "<sheet_id>": {
+    "default_sheet": {
         "image": "./assets/sprites/sheets/default_sheet.png",
-        "atlas": "<path/to/atlas>"
+        "atlas": "./assets/sprites/sheets/default_sheet.json"
     },
-    "<sheet_id2>": {
+    "default_sheet2": {
         "image": "./assets/sprites/sheets/default_sheet2.png",
-        "atlas": "<path/to/atlas>"
+        "atlas": "./assets/sprites/sheets/default_sheet2.json"
     }
 }

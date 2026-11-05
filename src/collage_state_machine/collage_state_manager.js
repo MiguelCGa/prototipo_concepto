@@ -8,6 +8,11 @@ import StartCommButton from '../assets_selection/start_comm_button.js';
 import BGSelector from '../assets_selection/bg_selector.js';
 import SheetSelector from '../assets_selection/sheet_selector.js';
 
+import Canvas from '../canvas/canvas.js';
+import SheetSpawner from '../canvas/sheet_spawner.js';
+import { Tool } from '../canvas/tool.js';
+import ToolBar from "../canvas/tool_bar.js";
+
 import data from "../../assets/data/collage_scene_data.json";
 
 export default class CollageStateManager {
@@ -17,6 +22,7 @@ export default class CollageStateManager {
         StartCommButton.preload(scene);
         BGSelector.preload(scene);
         SheetSelector.preload(scene);
+        ToolBar.preload(scene);
     }
 
     constructor(scene) {
@@ -33,33 +39,40 @@ export default class CollageStateManager {
                 sheet_selector: undefined,
                 start_comm_button: undefined
             }, /* canvas */{
-
+                sign: undefined,
+                canvas: undefined,
+                sheet_spawner: undefined,
+                tool_bar: undefined
             }, /* feedback */ {
 
             }
         ]
+
+        this.tool = new Tool();
     }
     
     enter_commision_selection(params) {
-        this.state_gos[COLLAGE_STATE.COMM_SELECT].signs = this.commision_sign_generator.create_three_signs(
+        let gos = this.state_gos[COLLAGE_STATE.COMM_SELECT];
+        gos.signs = this.commision_sign_generator.create_three_signs(
             this.scene, 
             data.comm_select_signs, 
             this.scene.collage_state_controller);
     }
 
     enter_asset_selection(params) {
-        this.state_gos[COLLAGE_STATE.ASSETS_SELECT].sign = new CommisionSign(
+        let gos = this.state_gos[COLLAGE_STATE.ASSETS_SELECT];
+        gos.sign = new CommisionSign(
             this.scene,
             data.asset_select_sign,
             params.selected_comm,
             this.scene.collage_state_controller);
-        let bg = this.state_gos[COLLAGE_STATE.ASSETS_SELECT].bg_selector = new BGSelector(
+        let bg = gos.bg_selector = new BGSelector(
             this.scene,
             data.asset_select_bg);
-        let sheet = this.state_gos[COLLAGE_STATE.ASSETS_SELECT].sheet_selector = new SheetSelector(
+        let sheet = gos.sheet_selector = new SheetSelector(
             this.scene,
             data.asset_select_sheet);
-        this.state_gos[COLLAGE_STATE.ASSETS_SELECT].start_comm_button = new StartCommButton(
+        gos.start_comm_button = new StartCommButton(
             this.scene,
             data.asset_select_start_button,
             this.scene.collage_state_controller,
@@ -69,7 +82,30 @@ export default class CollageStateManager {
     }
 
     enter_canvas(params) {
+        let gos = this.state_gos[COLLAGE_STATE.CANVAS];
+        gos.sign = new CommisionSign(
+            this.scene,
+            data.canvas_sign,
+            params.selected_comm,
+            this.scene.collage_state_controller);
+        
+        gos.canvas = new Canvas(
+            this.scene,
+            data.canvas_canvas,
+            params.selected_bg);
 
+        gos.sheet_spawner = new SheetSpawner(
+            this.scene,
+            data.canvas_sheet_spawner,
+            params.selected_sheet,
+            params.sheet_info,
+            this.tool,
+            gos.canvas);
+
+        gos.tool_bar = new ToolBar(
+            this.scene,
+            data.canvas_tool_bar,
+            this.tool);
     }
 
     enter_feedback(params) {

@@ -1,20 +1,24 @@
 import Phaser from 'phaser'
 
+import Sticker from './sticker.js';
+
 export default class Canvas extends Phaser.GameObjects.Container {
 
-    constructor(scene, data) {
+    constructor(scene, data, background) {
         super(scene, data.pos.x, data.pos.y, null);
+        scene.add.existing(this);
         
-        this.width = data.size.width;
-        this.height = data.size.height;
+        let background_go = new Phaser.GameObjects.Sprite(scene, 0, 0, background);
+        this.add(background_go);
+        this.width = background_go.width;
+        this.height = background_go.height;
     }
 
     is_in_bounds(sticker) {
-        return 
-            sticker.x - this.x > (this.width / -2) &&
-            sticker.y - this.y > (this.height / -2) &&
-            sticker.x - this.x < (this.width / 2) &&
-            sticker.y - this.y < (this.height / 2);
+        return sticker.x - this.x > -(this.width / 2 - sticker.width / 2)
+            && sticker.y - this.y > -(this.height / 2 - sticker.height / 2)
+            && sticker.x - this.x < (this.width / 2 - sticker.width / 2)
+            && sticker.y - this.y < (this.height / 2 - sticker.height / 2);
     }
 
     /**
@@ -26,12 +30,13 @@ export default class Canvas extends Phaser.GameObjects.Container {
         if (!this.is_in_bounds(sticker))
             return false;
         
-        let clone = Phaser.Utils.Objects.Clone(sticker);
+        let clone = new Sticker(sticker.scene, sticker.x, sticker.y, sticker.sheet, sticker.sticker_index, sticker.canvas, sticker.tool);//Phaser.Utils.Objects.Clone(sticker);
         this.add(clone);
+        clone.moving = false;
 
         // ¡¡¡SOLUCIÓN POTENCIAL ERROR!!!
-        // clone.x -= this.x;
-        // clone.y -= this.y;
+        clone.x -= this.x;
+        clone.y -= this.y;
 
         return true;
     }
@@ -42,11 +47,14 @@ export default class Canvas extends Phaser.GameObjects.Container {
      * @returns sticker eliminado
      */
     remove_sticker(sticker) {
-        this.remove(sticker);
+        if (this.getIndex(sticker) < 0)
+            return sticker;
+
+        this.remove(sticker, false);
 
         // ¡¡¡SOLUCIÓN POTENCIAL ERROR!!!
-        // clone.x += this.x;
-        // clone.y += this.y;
+        sticker.x += this.x;
+        sticker.y += this.y;
 
         return sticker;
     }
@@ -100,4 +108,5 @@ export default class Canvas extends Phaser.GameObjects.Container {
         this.sendToBack(sticker);
         return true;
     }
+    
 }

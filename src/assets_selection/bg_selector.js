@@ -15,7 +15,9 @@ export default class BGSelector extends Phaser.GameObjects.Container {
         scene.add.existing(this);
         this.background = undefined;
 
-        this.bg_selected = new Phaser.GameObjects.Sprite(scene, 0, 0, Object.keys(backgrounds)[0]);
+        this.current_bg = 0;
+
+        this.bg_selected = new Phaser.GameObjects.Sprite(scene, 0, 0, this.get_bg());
         this.add(this.bg_selected);
         this.bg_selected.scale = 0.5;
         this.left_arrow = new Phaser.GameObjects.Text(scene, -180, 0, '<');
@@ -23,7 +25,6 @@ export default class BGSelector extends Phaser.GameObjects.Container {
         this.right_arrow = new Phaser.GameObjects.Text(scene, 170, 0, '>');
         this.add(this.right_arrow);
 
-        this.current_bg = 0;
 
         this.left_arrow.setInteractive();
         this.left_arrow.on('pointerdown', () => {
@@ -41,17 +42,17 @@ export default class BGSelector extends Phaser.GameObjects.Container {
         if (this.current_bg >= Object.keys(backgrounds).length)
             this.current_bg = 0;
 
-        this.bg_selected.setTexture(Object.keys(backgrounds)[this.current_bg]);
+        this.bg_selected.setTexture(this.get_bg());
     }
 
     _go_left() {
         --this.current_bg;
         if (this.current_bg < 0)
             this.current_bg = Object.keys(backgrounds).length - 1;
-        this.bg_selected.setTexture(Object.keys(backgrounds)[this.current_bg]);
+        this.bg_selected.setTexture(this.get_bg());
     }
 
     get_bg() {
-        return backgrounds[this.current_bg];
+        return Object.keys(backgrounds)[this.current_bg];
     }
 }

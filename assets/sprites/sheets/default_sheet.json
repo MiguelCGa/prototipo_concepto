@@ -1,0 +1,120 @@
+{
+  "frames": [
+    {
+      "filename": "default_sheet_a",
+      "frame": {
+        "x": 212,
+        "y": 24,
+        "w": 34,
+        "h": 42
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 34,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 46,
+        "h": 52
+      }
+    },
+    {
+      "filename": "default_sheet_b",
+      "frame": {
+        "x": 293,
+        "y": 0,
+        "w": 70,
+        "h": 25
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2,
+        "w": 70,
+        "h": 25
+      },
+      "sourceSize": {
+        "w": 78,
+        "h": 30
+      }
+    },
+    {
+      "filename": "default_sheet_c",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 90
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 4,
+        "w": 120,
+        "h": 90
+      },
+      "sourceSize": {
+        "w": 124,
+        "h": 95
+      }
+    },
+    {
+      "filename": "default_sheet_d",
+      "frame": {
+        "x": 212,
+        "y": 0,
+        "w": 79,
+        "h": 22
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 4,
+        "w": 79,
+        "h": 22
+      },
+      "sourceSize": {
+        "w": 85,
+        "h": 29
+      }
+    },
+    {
+      "filename": "default_sheet_e",
+      "frame": {
+        "x": 122,
+        "y": 0,
+        "w": 88,
+        "h": 40
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 1,
+        "w": 88,
+        "h": 40
+      },
+      "sourceSize": {
+        "w": 91,
+        "h": 44
+      }
+    }
+  ],
+  "meta": {
+    "app": "I Love Sprites",
+    "version": "1.0",
+    "image": "default_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "width": 512,
+      "height": 128
+    },
+    "scale": 1
+  }
+}
