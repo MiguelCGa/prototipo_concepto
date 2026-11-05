@@ -1,6 +1,14 @@
 {
-        "<id>": {
-            "name": "<name>",
+        "marialuisa": {
+            "name": "María Luisa",
+            "sprite": "assets/sprites/characters/default_character.png"
+        },
+        "patricia": {
+            "name": "Patricia",
+            "sprite": "assets/sprites/characters/default_character.png"
+        },
+        "rogelio": {
+            "name": "Rogelio",
             "sprite": "assets/sprites/characters/default_character.png"
         }
 }

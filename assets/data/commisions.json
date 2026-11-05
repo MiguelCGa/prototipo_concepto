@@ -1,17 +1,17 @@
 [
         {
-            "character": "<id>",
-            "description": "<description1>",
+            "character": "marialuisa",
+            "description": "Querría un cuadro para\nregalarle a mi sobrina.\nLe encanta la\nnaturaleza,\nhace senterismo todas\nlas semanas.",
             "sticker_sheet": "<sheet_id>"
         },
         {
-            "character": "<id>",
-            "description": "<description2>",
+            "character": "patricia",
+            "description": "Me encantaría algo con\nlo que decorar el taller\nde tecnología, a ver\nsi mis alumnos se animan\nasí más en clase.",
             "sticker_sheet": "<sheet_id>"
         },
         {
-            "character": "<id>",
-            "description": "<description3>",
+            "character": "rogelio",
+            "description": "Disfruto de los paisajes\nurbanos, me gustaría\nalgo que colgar en mi\nsalón",
             "sticker_sheet": "<sheet_id>"
         }
 ]

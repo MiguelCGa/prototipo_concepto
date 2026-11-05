@@ -6,7 +6,7 @@ import CollageStateManager from '../collage_state_machine/collage_state_manager.
 
 import characters from "../../assets/data/characters.json";
 
-//import character1 from "../../assets/character.png";
+import default_character from "../../assets/sprites/characters/default_character.png";
 
 
 /**
@@ -24,7 +24,7 @@ export default class CollageScene extends Phaser.Scene {
     preload() {
         // load character sprites
         for (const [key, value] of Object.entries(characters)) {
-            this.load.image(key, value["sprite"]);
+            this.load.image(key, default_character);
         }
 
         CollageStateManager.preload(this);

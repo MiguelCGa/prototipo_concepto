@@ -2,11 +2,18 @@ import Phaser from 'phaser'
 
 import backgrounds from '../../assets/data/backgrounds.json';
 
+import default_bg from '../../assets/sprites/backgrounds/default_bg.png';
+import default_bg2 from '../../assets/sprites/backgrounds/default_bg2.png';
+
+const bgs = [default_bg, default_bg2];
+
 export default class BGSelector extends Phaser.GameObjects.Container {
     static preload(scene) {
-        // load character sprites
+        // load background sprites
+        let i = 0;
         for (const [key, value] of Object.entries(backgrounds)) {
-            scene.load.image(key, value);
+            scene.load.image(key, bgs[i]);
+            ++i;
         }
     }
 

@@ -13,6 +13,7 @@ let config = {
     width: 1000,
     height: 500,
     parent: 'juego',
+    backgroundColor: '#C3C3C3',
     scale: {
         //mode: Phaser.Scale.FIT,  
         autoCenter: Phaser.Scale.CENTER_HORIZONTALLY

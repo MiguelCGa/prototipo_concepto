@@ -1,11 +1,12 @@
 import Phaser from 'phaser'
 
 const start_comm_button_key = 'start_comm_button';
+import start_comm_button_image from "../../assets/sprites/ui/start_comm_button.png"
 
 export default class StartCommButton extends Phaser.GameObjects.Sprite {
 
     static preload(scene) {
-        scene.load.image(start_comm_button_key, "./assets/sprites/ui/start_comm_button.png");
+        scene.load.image(start_comm_button_key, start_comm_button_image);
     }
 
     constructor(scene, data, state_controller, commision, bg_selector, sheet_selector) {
