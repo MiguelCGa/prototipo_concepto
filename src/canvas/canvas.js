@@ -33,6 +33,8 @@ export default class Canvas extends Phaser.GameObjects.Container {
         let clone = new Sticker(sticker.scene, sticker.x, sticker.y, sticker.sheet, sticker.sticker_index, sticker.canvas, sticker.tool);//Phaser.Utils.Objects.Clone(sticker);
         this.add(clone);
         clone.moving = false;
+        clone.scale = sticker.scale;
+        clone.angle = sticker.angle;
 
         // ¡¡¡SOLUCIÓN POTENCIAL ERROR!!!
         clone.x -= this.x;

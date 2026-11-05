@@ -52,29 +52,22 @@ export class Tool /** extends Phaser.GameObjects.Sprite */ {
     }
 
     set_selected(sticker) {
-        console.log("set_selected " + sticker);
         if (this.selected === sticker)
             return;
-        console.log("set_selected2 " + sticker);
         if (this.selected !== null)
             this.selected.unselect();
-        console.log("set_selected3 " + sticker);
         this.selected = sticker;        
-        console.log("set_selected4 " + this.selected);
     }
     
     set_unselected(sticker) {
         if (this.selected !== sticker)
             return;
-        console.log("set_unselected " + this.selected);
         this.selected = null;
     }
 
     // -- opciones de selección --
 
     rotate_right() {
-        console.log("rotate_right this: " + this);
-        console.log("rotate_right: " + this.selected);
         if (this.selected == null)
             return;
 
