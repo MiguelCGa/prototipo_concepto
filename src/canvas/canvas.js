@@ -78,7 +78,7 @@ export default class Canvas extends Phaser.GameObjects.Container {
      */
     layer_down(sticker) {
         let index = this.getIndex(sticker);
-        if (index >= this.length - 1 || index < 0)
+        if (index >= this.length || index < 2)
             return false;
         this.moveDown(sticker);
         return true;
@@ -101,11 +101,11 @@ export default class Canvas extends Phaser.GameObjects.Container {
      * @param {Sticker} sticker Pegatina a mover.
      * @returns true si se puede mover. false si no se puede mover.
      */
-    layer_down(sticker) {
+    layer_bottom(sticker) {
         let index = this.getIndex(sticker);
-        if (index >= this.length - 1 || index < 0)
+        if (index >= this.length || index < 2)
             return false;
-        this.sendToBack(sticker);
+        this.moveTo(sticker, 1);
         return true;
     }
     

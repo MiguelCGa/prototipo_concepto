@@ -8,7 +8,6 @@ export default class SheetSpawner extends Phaser.GameObjects.Container {
 
         this.sticker_spawners = [];
 
-        console.log("sheet spawner constructor. x: " + this.x + ", y: " + this.y);
 
         let i = 0;
         let y = -200;

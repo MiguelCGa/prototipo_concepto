@@ -8,8 +8,6 @@ export default class StickerSpawner extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, sheet, sticker_index, tool, canvas) {
         super(scene, x, y, sheet, sticker_index);
         
-        console.log("sticker spawner constructor: " + sheet + " | " + sticker_index);
-        
         this.tool = tool;
         this.canvas = canvas;
         this.sheet = sheet;

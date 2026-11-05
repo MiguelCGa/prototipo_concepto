@@ -35,11 +35,14 @@ export default class Sticker extends Phaser.GameObjects.Sprite {
             case TOOLS.SELECT:
                 if (this.selected) this.unselect();
                 else this.select();
+                break;
             case TOOLS.MOVE:
                 if (this.moving) this.place();
                 else this.move();
+                break;
             case TOOLS.ERASE:
                 this.erase();
+                break;
         }
     }
 
@@ -108,12 +111,12 @@ export default class Sticker extends Phaser.GameObjects.Sprite {
 
     rotate_right() {
         // fixed angles to right
-        this.angle -= this.rotation_angle; 
+        this.angle += this.rotation_angle; 
     }
 
     rotate_left() {
         // fixed angles to left
-        this.angle += this.rotation_angle; 
+        this.angle -= this.rotation_angle; 
     }
 
     scale_up() {
@@ -150,10 +153,23 @@ export default class Sticker extends Phaser.GameObjects.Sprite {
 
     preUpdate(t, dt) {
         super.preUpdate(t, dt);
-        //console.log('aaaaaaaa');
         if (this.moving) {
             this.x = this.scene.input.activePointer.x;
             this.y = this.scene.input.activePointer.y;
+
+            let x_big_limit = this.canvas.x + (this.canvas.width / 2 - this.width / 2);
+            let x_little_limit = this.canvas.x - (this.canvas.width / 2 - this.width / 2);
+            if (this.x > x_big_limit)
+                this.x = x_big_limit;
+            else if (this.x < x_little_limit)
+                this.x = x_little_limit;
+
+            let y_big_limit = this.canvas.y + (this.canvas.height / 2 - this.height / 2);
+            let y_little_limit = this.canvas.y - (this.canvas.height / 2 - this.height / 2);
+            if (this.y > y_big_limit)
+                this.y = y_big_limit;
+            else if (this.y < y_little_limit)
+                this.y = y_little_limit;
         }
     }
     
