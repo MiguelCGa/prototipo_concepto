@@ -25,5 +25,23 @@
     },
     "canvas_tool_bar": {
         "pos": { "x": 500, "y": 45 }
+    },
+    "canvas_send_comm_button": {
+        "pos": { "x": 475, "y": 450 }
+    },
+    "feedback_painting": {
+        "pos": { "x": 250, "y": 250 }
+    },
+    "feedback_character": {
+        "pos": { "x": 750, "y": 150 }
+    },
+    "feedback_dialogue_box": {
+        "pos": { "x": 750, "y": 350 }
+    },
+    "feedback_dialogue_text": {
+        "pos": { "x": 625, "y": 330 }
+    },
+    "feedback_end_comm_button": {
+        "pos": { "x": 750, "y": 450 }
     }
 }

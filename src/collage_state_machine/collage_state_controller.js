@@ -33,4 +33,21 @@ export default class CollageStateController {
             sheet_info: sheet_info
         });
     }
+
+    send_commision(commision, canvas) {
+        if (this.state_machine.state !== COLLAGE_STATE.CANVAS)
+            return;
+        
+        this.state_machine.go_to(COLLAGE_STATE.FEEDBACK, {
+            commision: commision,
+            painting: canvas,
+        });
+    }
+
+    end_commision() {
+        if (this.state_machine.state !== COLLAGE_STATE.FEEDBACK)
+            return;
+        
+        this.state_machine.go_to(COLLAGE_STATE.COMM_SELECT, { });
+    }
 }

@@ -17,6 +17,7 @@ export default class CommisionSignGenerator {
     }
 
     create_three_signs(scene, data, state_controller) {
+        this.current_commision = 0;
         let signs = [];
         for (let i = 0; i < 3; ++i) {
             let sign_data = { pos : { x: data.pos.x + 250 * i, y: data.pos.y } };

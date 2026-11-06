@@ -110,5 +110,4 @@ export default class Canvas extends Phaser.GameObjects.Container {
         this.moveTo(sticker, 1);
         return true;
     }
-    
 }

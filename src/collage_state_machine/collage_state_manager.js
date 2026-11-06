@@ -14,6 +14,14 @@ import { Tool } from '../canvas/tool.js';
 import ToolBar from "../canvas/tool_bar.js";
 
 import data from "../../assets/data/collage_scene_data.json";
+import SendCommButton from "../canvas/send_comm_button.js";
+
+const dialogue_box_key = "dialogue_box";
+import dialogue_box_image from "../../assets/sprites/ui/dialogue_box.png";
+import EndCommButton from "../feedback/end_comm_button.js";
+
+const comm_done_key = "comm_done";
+import comm_done_image from "../../assets/sprites/ui/commision_done.png";
 
 export default class CollageStateManager {
 
@@ -23,6 +31,10 @@ export default class CollageStateManager {
         BGSelector.preload(scene);
         SheetSelector.preload(scene);
         ToolBar.preload(scene);
+        scene.load.image(dialogue_box_key, dialogue_box_image);
+        SendCommButton.preload(scene);
+        EndCommButton.preload(scene);
+        scene.load.image(comm_done_key, comm_done_image);
     }
 
     constructor(scene) {
@@ -42,9 +54,14 @@ export default class CollageStateManager {
                 sign: undefined,
                 canvas: undefined,
                 sheet_spawner: undefined,
-                tool_bar: undefined
+                tool_bar: undefined,
+                send_comm_button: undefined
             }, /* feedback */ {
-
+                painting: undefined,
+                character: undefined,
+                dialogue: undefined,
+                dialogue_box: undefined,
+                end_comm_button: undefined
             }
         ]
 
@@ -106,10 +123,52 @@ export default class CollageStateManager {
             this.scene,
             data.canvas_tool_bar,
             this.tool);
+
+        gos.send_comm_button = new SendCommButton(
+            this.scene,
+            data.canvas_send_comm_button,
+            this.scene.collage_state_controller,
+            params.selected_comm,
+            gos.canvas,
+            this.tool
+            );
     }
 
     enter_feedback(params) {
+        let gos = this.state_gos[COLLAGE_STATE.FEEDBACK];
+        gos.painting = new Phaser.GameObjects.Sprite(
+            this.scene,
+            data.feedback_painting.pos.x,
+            data.feedback_painting.pos.y,
+            comm_done_key);
+        this.scene.add.existing(gos.painting);
 
+        gos.character = new Phaser.GameObjects.Sprite(
+            this.scene,
+            data.feedback_character.pos.x,
+            data.feedback_character.pos.y,
+            params.commision.character);
+        this.scene.add.existing(gos.character);
+        
+        gos.dialog_box = new Phaser.GameObjects.Sprite(
+            this.scene,
+            data.feedback_dialogue_box.pos.x,
+            data.feedback_dialogue_box.pos.y,
+            dialogue_box_key);
+        this.scene.add.existing(gos.dialog_box);
+
+        gos.dialogue = new Phaser.GameObjects.Text(
+            this.scene,
+            data.feedback_dialogue_text.pos.x,
+            data.feedback_dialogue_text.pos.y,
+            params.commision.feedback);
+        this.scene.add.existing(gos.dialogue);
+        
+        gos.end_comm_button = new EndCommButton(
+            this.scene,
+            data.feedback_end_comm_button,
+            this.scene.collage_state_controller);
+        this.scene.add.existing(gos.end_comm_button);
     }
 
     exit_state(state) {

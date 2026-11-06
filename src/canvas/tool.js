@@ -12,8 +12,6 @@ export class Tool /** extends Phaser.GameObjects.Sprite */ {
         this.current_tool = TOOLS.SELECT;
         this.selected = null;
         this.moving = null;
-
-        console.log(this.selected);
     }
 
     change_tool(tool) {
